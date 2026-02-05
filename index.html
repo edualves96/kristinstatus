@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>União de Freguesias - Santa Eufémia e Boavista – Estado dos Serviços</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        header {
+            background-color: #111827;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 24px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section h2 {
+            margin-bottom: 16px;
+            border-left: 4px solid #2563eb;
+            padding-left: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: white;
+            height: auto;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80%;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;          /* SAME vertical level */
+            justify-content: space-between; /* left + right */
+        }
+
+        .card-header h3 {
+            margin: 0;                   /* removes default h3 spacing */
+        }
+
+        .status {
+            padding: 4px 8px;              /* px-2 py-1 */
+            font-size: 15px;               /* text-[10px] */
+            font-weight: 600;              /* font-semibold */
+            white-space: nowrap;           /* whitespace-nowrap */
+            flex-shrink: 0;                /* shrink-0 */
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .warn {
+            background-color: #fef3c7;     /* bg-amber-100 */
+            color: #d97706;                /* text-amber-600 */
+        }
+
+        .ok {
+            background-color: #d1fae5;     /* bg-emerald-100 */
+            color: #059669;                /* text-emerald-600 */
+        }
+
+        .bad {
+            background-color: #fee2e2;     /* bg-red-100 */
+            color: #dc2626;                /* text-red-600 */
+        }
+
+        footer {
+            background-color: #111827;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            font-size: 13px;
+        }
+
+        .update {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .expandable-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        /* hide items after the 5th */
+        .expandable-list li:nth-child(n+6) {
+            display: none;
+        }
+
+        /* show all when expanded */
+        .expandable-list.expanded li {
+            display: flex;
+        }
+
+        .expand-btn {
+            margin-top: 10px;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .item-district {
+            font-size: 12px;
+            color: #6b7280; /* light text */
+        }
+
+        .item-phone {
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .list-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .item-phone {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>União de Freguesias - Santa Eufémia e Boavista</h1>
+    <p>Informação oficial e Atualizações</p>
+</header>
+
+<main>
+
+    <!-- SERVICES STATUS -->
+    <section class="section">
+        <h2>Serviços</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Junta de Freguesia</h3>
+                    <span class="status ok">Aberta</span>
+                </div>
+                <p>A funcionar no Pavilhão Desportivo de Santa Eufémia</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Água</h3>
+                    <span class="status warn">Limitada</span>
+                </div>
+                <p>Reposição em curso. Limitada em algumas áreas</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Eletricidade</h3>
+                    <span class="status warn">Limitada</span>
+                </div>
+                <p>Geradores a fornecer energia limitada</p>
+                <a href="https://e-redes.opendatasoft.com/explore/dataset/postos-transformacao-distribuicao/mapa/?flg=pt-pt&refine.con_name=Leiria">
+                Postos de Transformação Distribuição (PTD)</a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Telecomunicações</h3>
+                    <span class="status warn">Instáveis</span>
+                </div>
+                <p>Rede móvel e Internet parcialmente a funcionar</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Centro de Saúde</h3>
+                    <span class="status ok">Aberto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+     <section class="section">
+        <h2>Escolas</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3>EB Boavista</h3>
+                    <span class="status warn">Limitada</span>
+                </div>
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESOURCES -->
+     <section class="section">
+        <h2>Serviços</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Água</h3>
+                    <span class="status warn">Limitada</span>
+                </div>
+                <p>Reposição em curso. Limitada em algumas áreas</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Eletricidade</h3>
+                    <span class="status warn">Limitada</span>
+                </div>
+                <p>Geradores a fornecer energia limitada</p>
+                <a href="https://e-redes.opendatasoft.com/explore/dataset/postos-transformacao-distribuicao/mapa/?flg=pt-pt&refine.con_name=Leiria">
+                Postos de Transformação Distribuição (PTD)</a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Telecomunicações</h3>
+                    <span class="status warn">Instáveis</span>
+                </div>
+                <p>Rede móvel e Internet parcialmente a funcionar</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Centro de Saúde</h3>
+                    <span class="status ok">Aberto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TELHAS -->
+    <section class="section">
+    <h2>Fornecedores de Telhas</h2>
+
+    <div class="card">
+        <ul class="expandable-list">
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">Josina</div>
+                    <div class="item-district">Olival, V. N. Ourém</div>
+                </div>
+                <div class="item-phone">249 581 732</div>
+            </li>
+
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">J. FRIAS</div>
+                    <div class="item-district">Coimbrão - Monte Redondo</div>
+                </div>
+                <div class="item-phone">244 606 628</div>
+            </li>
+
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">IRGOMAT</div>
+                    <div class="item-district">Maceira - Alcobaça</div>
+                </div>
+                <div class="item-phone">244 777 331</div>
+            </li>
+
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">PREMOTAL</div>
+                    <div class="item-district">Vermoil - Pombal</div>
+                </div>
+                <div class="item-phone">236 949 100</div>
+            </li>
+
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">PREMOTAL</div>
+                    <div class="item-district">Vermoil - Pombal</div>
+                </div>
+                <div class="item-phone">236 949 100</div>
+            </li>
+
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">PREMOTAL</div>
+                    <div class="item-district">Vermoil - Pombal</div>
+                </div>
+                <div class="item-phone">236 949 100</div>
+            </li>
+
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">PREMOTAL</div>
+                    <div class="item-district">Vermoil - Pombal</div>
+                </div>
+                <div class="item-phone">236 949 100</div>
+            </li>
+
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-name">PREMOTAL</div>
+                    <div class="item-district">Vermoil - Pombal</div>
+                </div>
+                <div class="item-phone">236 949 100</div>
+            </li>
+            
+        </ul>
+
+        <button class="expand-btn" onclick="toggleList(this)">
+            Ver mais
+        </button>
+    </div>
+</section>
+
+    <!-- CONTACT -->
+    <section class="section">
+        <h2>Contacts</h2>
+        <div class="grid">
+            <div class="card">
+                <p><strong>Civil Protection:</strong> 112</p>
+                <p><strong>Municipality:</strong> +351 000 000 000</p>
+                <p><strong>Email:</strong> info@mydistrict.pt</p>
+            </div>
+        </div>
+        <p class="update">Última atualização: 05 de Fevereiro - 04:00</p>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 União de Freguesias - Santa Eufémia e Boavista · Informação em atualização
+</footer>
+    <script>
+        function toggleList(button) {
+            const card = button.closest(".card");
+            const list = card.querySelector(".expandable-list");
+
+            list.classList.toggle("expanded");
+
+            button.textContent = list.classList.contains("expanded")
+                ? "Ver menos"
+                : "Ver mais";
+        }
+        </script>
+</body>
+</html>
