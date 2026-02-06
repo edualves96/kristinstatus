@@ -10,3 +10,5 @@
 /.vs/UniaoSantaBoa.slnx/v18/DocumentLayout.json
 *.vsidx
 /.vs/slnx.sqlite
+*.wsuo
+*.json
